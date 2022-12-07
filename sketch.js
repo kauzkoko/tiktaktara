@@ -2,6 +2,13 @@ let t1, i, k1
 let t2, a, k2
 let tick = 0
 let aArray = []
+let rectKreis
+
+let images = []
+function preload() {
+	images[0] = loadImage("test.png")
+}
+
 function setup() {
 	createCanvas(windowWidth, windowHeight)
 	strokeCap(SQUARE)
@@ -18,12 +25,216 @@ function setup() {
 			aArray[i - 1][j - 1].set((j + 1) * 50, (i + 1) * 50)
 		}
 	}
+	ellipseMode(CORNER)
+	rectKreis = new RectKreis(0, 0, 100, 30)
+}
+
+class RectKreis {
+	constructor(x, y, w, h) {
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+	}
+	draw() {
+		translate(this.x, this.y)
+		push()
+		fill(255)
+		strokeWeight(1)
+		rotate(0 - tick)
+		ellipseMode(CORNER)
+		ellipse(0, 0, this.w / 5, this.h)
+		ellipse(this.w / 5, 0, this.w / 5, this.h)
+		ellipse((2 * this.w) / 5, 0, this.w / 5, this.h)
+		ellipse((3 * this.w) / 5, 0, this.w / 5, this.h)
+		ellipse((4 * this.w) / 5, 0, this.w / 5, this.h)
+		pop()
+	}
 }
 
 function draw() {
 	background(255)
 	fill(0)
-	rect(0, 0, width, height / PI)
+	translate(width / 2 - 250, height / 2 - 250)
+	push()
+	fill(255)
+	strokeWeight(1)
+	ellipse(0, 0, 700)
+	pop()
+
+	// push()
+	// fill(255)
+	// strokeWeight(1)
+	// ellipseMode(CORNER)
+	// ellipse(0, 0, 50, 10)
+	// pop()
+
+	rectKreis.draw()
+
+	scale(2)
+	//t
+	// push()
+	// translate(0, 0)
+	// ellipse(0, 0, 5)
+	// rotate(0 - tick)
+	// rect(0, -5, 50, 10)
+	// pop()
+
+	push()
+	translate(60, 0)
+	ellipse(0, 0, 5)
+	rotate(0 + tick)
+	//rect(0, -5, 50, 10)
+	image(images[0], 0, 0, 50, 10)
+	pop()
+
+	push()
+	translate(60, 0)
+	ellipse(0, 0, 5)
+	rotate(90 - tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(60, 60)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	//i
+	push()
+	translate(120, 0)
+	ellipse(0, 0, 5)
+	rotate(90 - tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(120, 60)
+	ellipse(0, 0, 5)
+	rotate(90 - tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	//k
+	push()
+	translate(160, 0)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(45 + tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(-45 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	translate(0, 150)
+	//t
+	push()
+	translate(0, 0)
+	ellipse(0, 0, 5)
+	rotate(0 - tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(60, 0)
+	ellipse(0, 0, 5)
+	rotate(0 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(60, 0)
+	ellipse(0, 0, 5)
+	rotate(90 - tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(60, 60)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	//a
+	push()
+	translate(120, 0)
+	ellipse(0, 0, 5)
+	rotate(110 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	push()
+	translate(120, 60)
+	ellipse(0, 0, 5)
+	rotate(110 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	push()
+	translate(120, 0)
+	ellipse(0, 0, 5)
+	rotate(70 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	push()
+	translate(120, 60)
+	ellipse(0, 0, 5)
+	rotate(70 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	//k
+	push()
+	translate(160, 0)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(90 + tick)
+	rect(0, -5, 50, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(45 + tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	push()
+	translate(160, 60)
+	ellipse(0, 0, 5)
+	rotate(-45 - tick)
+	rect(0, -5, 60, 10)
+	pop()
+
+	//minus halbe höhe
 
 	// text(frameRate(), width - 50, 20)
 	// translate(width / 2, height / 2)
@@ -39,10 +250,13 @@ function draw() {
 	// k1.draw()
 	// pop()
 
-	aArray.forEach((item) => {
-		item.forEach((item) => item.draw())
-	})
-	if (frameCount % 60 == 0) tick += 6
+	// aArray.forEach((item) => {
+	// 	item.forEach((item) => item.draw())
+	// })
+	//let ticker = map(mouseX, 0, width, 0, 40) % 6 < 1 ? mouseX : 6
+	let ticker = 6
+	let speed = 20
+	if (frameCount % speed == 0) tick += ticker
 }
 
 class T {
