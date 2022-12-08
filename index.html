@@ -20,12 +20,54 @@
   <script src="./p5.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script> -->
   <!-- <script src="./p5.sound.min.js"></script> -->
-  <script src="sketch.js"></script>
+  <script src="utils.js"></script>
+  <script src="stripes.js"></script>
+  <script src="letters.js"></script>
+  <!-- <script src="fakeSketch.js"></script> -->
+  <script src="sketchOutGood.js"></script>
+  <!-- <script src="sketch.js"></script>
+  <script src="sketch2.js"></script> -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <meta charset="utf-8" />
 </head>
 
 <body>
+  <div>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <svg class="svg" id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: none;
+            stroke: #231f20;
+            stroke-miterlimit: 10;
+          }
+        </style>
+      </defs>
+      <line class="cls-1" x1="178.37" y1="924.8" x2="178.37" y2="70.8" />
+      <line class="cls-1" x1="83.87" y1="70.8" x2="273.87" y2="70.8" />
+      <line class="cls-1" x1="178.37" y1="1874.8" x2="178.37" y2="1020.8" />
+      <line class="cls-1" x1="83.87" y1="1020.8" x2="273.87" y2="1020.8" />
+      <line class="cls-1" x1="511.37" y1="307.8" x2="511.37" y2="923.8" />
+      <polyline class="cls-1" points="416.37 1875.3 416.37 1020.3 605.87 1020.3 605.87 1875.3" />
+      <line class="cls-1" x1="416.37" y1="1400.8" x2="606.37" y2="1400.8" />
+      <polyline class="cls-1" points="748.37 1020.8 748.37 1361.5 748.37 1874.8" />
+      <line class="cls-1" x1="463.87" y1="925.3" x2="557.87" y2="925.3" />
+      <line class="cls-1" x1="462.87" y1="308.3" x2="557.87" y2="308.3" />
+      <polyline class="cls-1" points="748.37 1400.3 843.37 1400.3 938.37 1305.3 938.37 1020.3" />
+      <polyline class="cls-1" points="938.37 1875.3 938.37 1495.3 843.37 1400.3 748.37 1400.3" />
+      <polyline class="cls-1" points="748.37 70.8 748.37 411.5 748.37 924.8" />
+      <polyline class="cls-1" points="748.37 450.3 843.37 450.3 938.37 355.3 938.37 70.3" />
+      <polyline class="cls-1" points="938.37 925.3 938.37 545.3 843.37 450.3 748.37 450.3" />
+      <circle class="cls-1" cx="510.87" cy="117.8" r="47.5" />
+      <rect class="cls-1" x=".5" y=".5" width="1080" height="1920" />
+    </svg>
+  </div>
+  <div class="canvas">
+    <div id="canvas1"></div>
+    <div id="canvas2"></div>
+  </div>
+  <!-- <img class="svg" src="lines.svg" width="100%" /> -->
   <!-- <div class="loader"> </div> -->
   <!-- <div id="app" class="shadow">
     <div v-for="n in 2" class="grid">
@@ -73,6 +115,7 @@
     background-color: black;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   body {
@@ -80,6 +123,18 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+
+  .canvas {
+    display: flex;
+
+  }
+
+  .svg {
+    position: fixed;
+    aspect-ratio: 9/16;
+    height: 100vh;
+    display: none;
   }
 
   #app {

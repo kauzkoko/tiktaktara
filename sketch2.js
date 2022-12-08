@@ -1,4 +1,4 @@
-const s1 = (sketch) => {
+const s2 = (sketch) => {
 	let scaler = 60
 	let w = 9 * scaler
 	let h = 16 * scaler
@@ -10,7 +10,7 @@ const s1 = (sketch) => {
 	sketch.setup = () => {
 		sketch.background(255)
 		let cnv = sketch.createCanvas((sketch.windowHeight / 16) * 9, sketch.windowHeight)
-		cnv.parent("canvas1")
+		cnv.parent("canvas2")
 		sketch.background(255)
 		sketch.stroke(0)
 		sketch.strokeWeight(0)
@@ -40,4 +40,4 @@ const s1 = (sketch) => {
 	}
 }
 
-let p51 = new p5(s1)
+let p52 = new p5(s2)

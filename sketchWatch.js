@@ -279,7 +279,6 @@ function setup() {
 	}
 	ellipseMode(CORNER)
 	rectKreis = new RectKreis(0, 0, 100, 30)
-	console.log(window.SVG)
 	SVG("rect.my-class")
 }
 
