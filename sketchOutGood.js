@@ -3,12 +3,19 @@ let w = 9 * scaler
 let h = 16 * scaler
 let tickAngle = 6
 let tickTotal = 0
-let tickSpeed = 25 //25 equals 1 tick per second when used 25fps
+let setFrameRate = 30
+let tickSpeed = 30 //25 equals 1 tick per second when used 25fps
 let t, i, k, a
 let mouseOverCanvas = false
+let images = new Array(50).fill(0)
+let gif
+function preload() {
+	gif = loadImage("images/papa.gif")
+	images.forEach((e, index) => (images[index] = loadImage("images/small/_" + index + ".jpeg")))
+}
 
 function setup() {
-	frameRate(25)
+	frameRate(setFrameRate)
 	background(255)
 	let cnv = createCanvas((windowHeight / 16) * 9 * 2, windowHeight)
 	cnv.parent("canvas1")
@@ -26,11 +33,12 @@ function setup() {
 	fill(0)
 	angleMode(DEGREES)
 	rectMode(CENTER)
-	t = new T([1, 2, 4, 1], [2, 3, 5, 2, 4, 2, 5])
-	t2 = new T([2, 5, 3], [2, 1, 5, 7])
-	i = new I([2, 3, 5, 2, 4, 2, 5], [2, 1, 5, 7], [2, 1, 5, 7])
-	k = new K([2, 1, 5, 7])
-	a = new A([2, 1, 5, 7])
+	imageMode(CENTER)
+	t = new T([1, 5, 4], [2, 3, 5, 2, 4, 2, 5])
+	t2 = new T([2, 3, 5, 2, 4, 2, 5], [2, 3, 5, 2, 4, 2, 5])
+	i = new I([2, 3, 5, 2, 4, 2, 5], [2, 3, 5], [2, 1, 5, 7])
+	k = new K([2, 3, 5, 2])
+	a = new A([2, 3, 5])
 }
 
 function draw() {
@@ -63,15 +71,15 @@ function draw() {
 	else if (mouseX > width / 2) tickSpeed = floor(map(mouseX, width / 2 + 30, width, 50, 1))
 	else tickSpeed = floor(map(mouseX, 0, width / 2 - 30, 1, 50))
 
-	if (frameCount % tickSpeed == 0) {
-		tickTotal += tickAngle
-	}
+	// if (frameCount % tickSpeed == 0) {
+	// 	tickTotal += tickAngle
+	// }
 	//noLoop()
 }
 
-let daytimeColor = 200
-setInterval(() => {
-	let hour = new Date().getHours()
-	if (hour < 18) daytimeColor = map(hour, 0, 14, 200, 255)
-	if (hour > 14) daytimeColor = map(hour, 14, 23, 255, 200)
-}, 1000)
+let daytimeColor = 255
+// setInterval(() => {
+// 	let hour = new Date().getHours()
+// 	if (hour < 18) daytimeColor = map(hour, 0, 14, 200, 255)
+// 	if (hour > 14) daytimeColor = map(hour, 14, 23, 255, 200)
+// }, 1000)

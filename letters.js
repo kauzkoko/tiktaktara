@@ -1,7 +1,7 @@
 class T {
 	constructor(parts1, parts2) {
-		this.stripes1 = new Stripes(mapperWidth(190), 10, parts1, 0)
-		this.stripes2 = new Stripes(mapperWidth(854), 20, parts2, 90)
+		this.stripes1 = new Stripes(mapperWidth(190), 30, parts1, 0)
+		this.stripes2 = new Stripes(mapperWidth(854), 10, parts2, 90)
 	}
 
 	draw() {
@@ -19,8 +19,8 @@ class T {
 class I {
 	constructor(parts1, parts2, parts3) {
 		this.stripes1 = new Stripes(mapperWidth(616), 20, parts1, 90)
-		this.stripes2 = new Stripes(mapperWidth(95), 20, parts2, 0)
-		this.stripes3 = new Stripes(mapperWidth(95), 20, parts3, 0)
+		this.stripes2 = new Stripes(mapperWidth(95), 10, parts2, 0)
+		this.stripes3 = new Stripes(mapperWidth(95), 30, parts3, 0)
 	}
 
 	draw() {
@@ -46,8 +46,8 @@ class I {
 class A {
 	constructor(parts) {
 		this.stripes1 = new Stripes(mapperWidth(854), 20, parts, 90)
-		this.stripes2 = new Stripes(mapperWidth(854), 20, parts, 90)
-		this.stripes3 = new Stripes(mapperWidth(190), 10, parts, 0)
+		this.stripes2 = new Stripes(mapperWidth(854), 40, parts, 90)
+		this.stripes3 = new Stripes(mapperWidth(190), 5, parts, 0)
 	}
 
 	draw() {
@@ -66,12 +66,12 @@ class A {
 
 class K {
 	constructor(parts1) {
-		this.stripes1 = new Stripes(mapperWidth(854), 10, parts1, 90)
+		this.stripes1 = new Stripes(mapperWidth(854), 20, parts1, 90)
 		this.stripes2 = new Stripes(mapperWidth(190 / 2), 20, parts1, 0)
-		this.stripes3 = new Stripes(80, 20, parts1, 45)
+		this.stripes3 = new Stripes(80, 40, parts1, 45)
 		this.stripes4 = new Stripes(60, 20, parts1, -45)
 		this.stripes5 = new Stripes(mapperWidth(854 / 2 - 100), 10, parts1, 90)
-		this.stripes6 = new Stripes(mapperWidth(854 / 2 - 100), 10, parts1, 90)
+		this.stripes6 = new Stripes(mapperWidth(854 / 2 - 100), 30, parts1, 90)
 	}
 
 	draw() {

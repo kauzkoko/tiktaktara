@@ -1,15 +1,21 @@
 class Stripe {
-	constructor(w = 100, h = 20, rotation = true) {
+	constructor(w = 100, h = 20, tickSpeed = 1, tickDirection = 1) {
 		this.w = w
 		this.h = h
-		this.rotation = rotation ? 1 : -1
+		this.tickSpeed = tickSpeed
+		this.tickDirection = tickDirection
+		this.tickTotal = 0
+		this.tickAngle = 6
 	}
 
 	draw(startAngle = 0) {
+		if (frameCount % this.tickSpeed == 0) {
+			this.tickTotal += this.tickAngle
+		}
 		push()
 		translate(0, this.h / 2)
-		rotate(startAngle + this.rotation * tickTotal)
-		rect(0, 0, this.w, this.h)
+		rotate(startAngle + this.tickDirection * this.tickSpeed * this.tickTotal)
+		rect(0, 0, this.w * 2, this.h)
 		pop()
 	}
 }
@@ -24,8 +30,10 @@ class Stripes {
 		this.parts = partsArray.length
 		this.stripes = new Array(this.parts).fill(0)
 		this.stripes.forEach((stripe, index) => {
-			let direction = round(random(0, 1))
-			this.stripes[index] = new Stripe((this.length / sum) * partsArray[index], this.height, direction)
+			let tickSpeed = round(random(10, 20))
+			let tickDirection = round(random(-1, 1))
+			//if (direction) tickSpeed += direction
+			this.stripes[index] = new Stripe((this.length / sum) * partsArray[index], this.height, tickSpeed, tickDirection)
 		})
 	}
 
