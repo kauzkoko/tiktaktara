@@ -3,5 +3,8 @@
 	"editor.fontLigatures": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
-	"editor.formatOnSaveMode": "file"
+	"editor.formatOnSaveMode": "file",
+	"[svg]": {
+		"editor.defaultFormatter": "jock.svg"
+	}
 }

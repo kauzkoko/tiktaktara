@@ -34,9 +34,9 @@ function setup() {
 	angleMode(DEGREES)
 	rectMode(CENTER)
 	imageMode(CENTER)
-	t = new T([1, 5, 4], [2, 3, 5, 2, 4, 2, 5])
-	t2 = new T([2, 3, 5, 2, 4, 2, 5], [2, 3, 5, 2, 4, 2, 5])
-	i = new I([2, 3, 5, 2, 4, 2, 5], [2, 3, 5], [2, 1, 5, 7])
+	t = new T([1, 5, 4])
+	t2 = new T([2, 3, 5, 5])
+	i = new I([2, 5])
 	k = new K([2, 3, 5, 2])
 	a = new A([2, 3, 5])
 }
@@ -74,7 +74,7 @@ function draw() {
 	// if (frameCount % tickSpeed == 0) {
 	// 	tickTotal += tickAngle
 	// }
-	//noLoop()
+	noLoop()
 }
 
 let daytimeColor = 255
