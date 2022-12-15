@@ -5,6 +5,7 @@ let springArray = []
 let kopf, springKopf, kBein, springKBein
 
 function setup() {
+	noCanvas()
 	frameRate(60)
 	letters.push(SVG.find("#t1")[0])
 	letters.push(SVG.find("#i")[0])
@@ -31,7 +32,7 @@ function setup() {
 	})
 
 	//let test = letters[0].children()[0].animate(new SVG.Spring(400, 20))
-	setInterval(inti, 100)
+	setInterval(inti, 1000)
 }
 
 let intiCounter = 0
