@@ -38,18 +38,83 @@ function setup() {
 	})
 
 	//setInterval(ticker, 1000)
-	// setInterval(realTime, 1000)
+	setInterval(realTime, 1000)
 	setInterval(realTimeGschmeus, 1000)
+	setInterval(dayNight, 1000 * 60)
 	// realTime()
 	realTimeGschmeus()
 	//ticker()
+	dayNight()
+	show = document.querySelector("#show")
 }
+let enableRealTime = true
+let speed = 0.8
 
 let circCounter = 0
 let circAngle = 0
+
+let inside = false
+function mouseClicked() {
+	inside = !inside
+}
+
+let show
 function draw() {
-	circ.transform({ rotate: map(circAngle, 0, 114, -100, 100), origin: [1080, -100] })
-	circAngle += sin(frameCount)
+	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
+	circAngle += sin(frameCount * speed)
+	//circ.hide()
+
+	show.innerHTML = inside
+
+	if (inside) {
+		enableRealTime = false
+		const d = new Date()
+
+		let h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours()
+		let m = d.getMinutes()
+		let s = d.getSeconds()
+
+		h += m / 60
+
+		const hAngle = h * 30
+		const mAngle = (m / 60) * 360
+		const sAngle = (s / 60) * 360 + 90
+
+		letters.forEach((item, index) => {
+			item.each(function (i, children) {
+				let x = this.attr("x") ?? 0
+				let y = this.attr("y") ?? 0
+				if (frameCount % 60 < 1) {
+					console.log("hAngle", hAngle)
+					console.log("h", h)
+					console.log("mouseX", mouseX)
+					console.log("windowWidth", windowWidth)
+				}
+
+				let hDiff = floor((360 - hAngle) / 30)
+				console.log(hDiff)
+
+				let mappedXhour = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, hAngle, 360) : map(mouseX, windowWidth / 2, windowWidth, 0, hAngle)
+				let mappedHDiff = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, 0, hDiff * 360) : map(mouseX, windowWidth / 2, windowWidth, 0, mAngle)
+
+				let mappedXmin = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, mAngle, 360) : map(mouseX, windowWidth / 2, windowWidth, 0, mAngle)
+				let minVal = mappedXmin + mappedHDiff * 60
+
+				let mappedXsec = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, sAngle, 360) : map(mouseX, windowWidth / 2, windowWidth, 0, sAngle)
+				let secVal = mappedXsec + mappedHDiff * 60 * 60
+
+				if (this.attr("width") == 10 || this.attr("height") == 10) {
+					animatedLetters[index][i].transform({ rotate: mappedXsec, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				} else if (this.attr("width") == 80 || this.attr("height") == 80) {
+					animatedLetters[index][i].transform({ rotate: mappedXmin, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				} else if (this.attr("width") == 160 || this.attr("height") == 160) {
+					this.transform({ rotate: mappedXhour, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				}
+			})
+		})
+	} else {
+		enableRealTime = true
+	}
 }
 
 let secCounter = 0
@@ -92,7 +157,6 @@ const gticker = () => {
 	let sec = 6
 	let min = 0
 	let hour = 0
-	bgh.attr({ width: map(sin(secCounter % 360), -1, 1, 0, 2160) })
 	gschmeus.forEach((item, index) => {
 		item.each(function (i, children) {
 			let x = this.attr("x") ?? 0
@@ -156,17 +220,38 @@ const realTime = () => {
 	const mAngle = (m / 60) * 360
 	const sAngle = (s / 60) * 360 + 90
 
-	letters.forEach((item, index) => {
-		item.each(function (i, children) {
-			let x = this.attr("x") ?? 0
-			let y = this.attr("y") ?? 0
-			if (this.attr("width") == 10 || this.attr("height") == 10) {
-				animatedLetters[index][i].transform({ rotate: sAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
-			} else if (this.attr("width") == 80 || this.attr("height") == 80) {
-				animatedLetters[index][i].transform({ rotate: mAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
-			} else if (this.attr("width") == 160 || this.attr("height") == 160) {
-				this.transform({ rotate: hAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
-			}
+	if (enableRealTime) {
+		letters.forEach((item, index) => {
+			item.each(function (i, children) {
+				let x = this.attr("x") ?? 0
+				let y = this.attr("y") ?? 0
+				if (this.attr("width") == 10 || this.attr("height") == 10) {
+					animatedLetters[index][i].transform({ rotate: sAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				} else if (this.attr("width") == 80 || this.attr("height") == 80) {
+					animatedLetters[index][i].transform({ rotate: mAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				} else if (this.attr("width") == 160 || this.attr("height") == 160) {
+					this.transform({ rotate: hAngle, origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
+				}
+			})
 		})
-	})
+	}
+}
+
+const dayNight = () => {
+	const d = new Date()
+
+	let h = d.getHours()
+	let h12 = h > 12 ? h - 12 : h
+	let m = d.getMinutes()
+	let s = d.getSeconds()
+
+	h12 += m / 60
+
+	const hAngle = h12 * 30
+	const mAngle = (m / 60) * 360
+	const sAngle = (s / 60) * 360 + 90
+
+	if (h < 12) bgh.attr({ width: map(h, 0, 12, 2160, 0) })
+	else bgh.attr({ width: map(h, 12, 24, 0, 2160) })
+	bgh.attr({ width: map(18, 12, 24, 0, 2160) })
 }
