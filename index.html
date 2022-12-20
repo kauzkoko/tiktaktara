@@ -2,73 +2,115 @@
 <html lang="en">
 
 <head>
-  <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.45/vue.global.min.js"
-      integrity="sha512-Pdnl+dKWHA0jEnmhogUHlOw3FqDeujiEc3XQDkvMrPUAvytiU2cZiknw2xDPgDS+u2prg2n+6eKz3CPG588gTQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
-  <script src="./vue.global.min.js"></script>
-  <!-- <script src="https://unpkg.com/@vueuse/shared"></script> -->
-  <script src="./shared"></script>
-  <!-- <script src="https://unpkg.com/@vueuse/core"></script> -->
-  <script src="./core"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script> -->
-  <script src="./p5.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script> -->
-  <!-- <script src="./p5.sound.min.js"></script> -->
-  <script src="sketch.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="./libraries/svg.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../libraries/osc.min.js"></script>
+  <script src="./final.js"></script>
+  <script language="javascript" type="text/javascript" src="../libraries/Poster_Control.js"></script>
+  <script language="javascript" type="text/javascript" src="../libraries/OSC_Control.js"></script>
+  <script src="../libraries/osc.min.js"></script>
   <meta charset="utf-8" />
 </head>
 
+
+
 <body>
-  <!-- <div class="loader"> </div> -->
-  <!-- <div id="app" class="shadow">
-    <div v-for="n in 2" class="grid">
-      <div class="tik container">
-        <div class="tik ball" :style="ballStyle"></div>
-        <div class="tik script">tik</div>
-      </div>
-      <div class="tok container">
-        <div class="tok script">tik</div>
-      </div>
-    </div>
-  </div> -->
+  <svg id="svg" viewBox="0 0 2160 1920" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <rect id="bgh" width="1080" height="1920" fill="black" />
+    <circle id="circ" cx="1080" cy="960" r="1080" fill="black" />
+    <g id="rechts-gschmeus">
+      <rect x="1181" y="1760" width="429" height="160" fill="black" />
+      <rect x="1180" y="1660" width="430" height="10" fill="black" />
+      <rect x="1180" y="1700" width="430" height="10" fill="black" />
+      <rect x="1900" y="681" width="160" height="10" fill="black" />
+      <rect x="1900" y="641" width="160" height="10" fill="black" />
+      <rect x="1110" y="220" width="300" height="10" fill="black" />
+      <rect x="1110" y="260" width="300" height="10" fill="black" />
+      <rect x="1450" y="1400" width="160" height="110" fill="black" />
+      <rect x="1450" y="70" width="710" height="10" fill="black" />
+      <rect x="1680" y="160" width="480" height="80" fill="black" />
+      <rect x="1080" y="0" width="330" height="80" fill="black" />
+      <rect x="2080" y="1650" width="80" height="270" fill="black" />
+      <rect x="2150" y="720" width="10" height="609" fill="black" />
+    </g>
+    <g id="k2">
+      <rect x="1720" y="730" width="80" height="440" fill="black" />
+      <rect x="1720" y="1170" width="220" height="160" fill="black" />
+      <rect x="1720" y="1830" width="80" height="80" fill="black" />
+      <rect x="1680" y="1910" width="120" height="10" fill="black" />
+      <rect x="1940" y="730" width="80" height="230" fill="black" />
+      <rect x="1940" y="960" width="80" height="210" fill="black" />
+      <rect x="1940" y="1330" width="80" height="580" fill="black" />
+      <rect x="1900" y="1910" width="160" height="10" fill="black" />
+      <rect x="1680" y="720" width="120" height="10" fill="black" />
+      <rect x="1900" y="720" width="160" height="10" fill="black" />
+      <rect x="1720" y="1330" width="80" height="500" fill="black" />
+    </g>
+    <g id="a">
+      <rect x="580" width="80" height="499" fill="black" />
+      <rect x="440" width="140" height="160" fill="black" />
+      <rect x="360" y="10" width="80" height="680" fill="black" />
+      <rect x="440" y="450" width="140" height="160" fill="black" />
+      <rect x="320" y="1190" width="160" height="10" fill="black" />
+      <rect x="294" width="146" height="10" fill="black" />
+      <rect x="540" y="1190" width="160" height="10" fill="black" />
+      <rect x="580" y="499" width="80" height="691" fill="black" />
+      <rect x="360" y="690" width="80" height="500" fill="black" />
+    </g>
+    <g id="t2">
+      <rect x="1110" y="400" width="150" height="160" fill="black" />
+      <rect x="1260" y="400" width="150" height="160" fill="black" />
+      <rect x="1220" y="560" width="80" height="1030" fill="black" />
+      <rect x="1180" y="1590" width="160" height="10" fill="black" />
+    </g>
+    <g id="links-gschmeus">
+      <rect width="160" y="0" height="320" fill="black" />
+      <rect x="70" y="1660" width="160" height="10" fill="black" />
+      <rect x="70" y="1700" width="160" height="10" fill="black" />
+      <rect x="320" y="1760" width="760" height="160" fill="black" />
+      <rect x="320" y="1500" width="760" height="10" fill="black" />
+      <rect x="320" y="1630" width="760" height="80" fill="black" />
+      <rect x="70" y="1760" width="160" height="160" fill="black" />
+      <rect x="700" y="0" width="380" height="80" fill="black" />
+      <rect x="320" y="1239" width="160" height="181" fill="black" />
+    </g>
+    <g id="k1">
+      <rect x="740" y="230" width="80" height="440" fill="black" />
+      <rect x="740" y="670" width="220" height="160" fill="black" />
+      <rect x="740" y="830" width="80" height="580" fill="black" />
+      <rect x="700" y="1410" width="120" height="10" fill="black" />
+      <rect x="960" y="230" width="80" height="440" fill="black" />
+      <rect x="960" y="830" width="80" height="580" fill="black" />
+      <rect x="920" y="1410" width="160" height="10" fill="black" />
+      <rect x="700" y="220" width="120" height="10" fill="black" />
+      <rect x="920" y="220" width="160" height="10" fill="black" />
+    </g>
+    <g id="i">
+      <rect x="1490" y="605" width="80" height="745" fill="black" />
+      <rect x="1490" y="170" width="80" height="238" fill="black" />
+      <rect x="1490" y="408" width="80" height="197" fill="black" />
+      <rect x="1450" y="1350" width="160" height="10" fill="black" />
+      <rect x="1450" y="160" width="160" height="10" fill="black" />
+    </g>
+    <g id="t1">
+      <rect y="430" width="300" height="160" fill="black" />
+      <rect x="110" y="590" width="80" height="358" fill="black" />
+      <rect x="110" y="948" width="80" height="672" fill="black" />
+      <rect x="70" y="1620" width="160" height="10" fill="black" />
+    </g>
+  </svg>
+  <div style="position: fixed; top: 50px; left: 50px; background-color: pink; display: none;">inside: <span
+      id="shower"></span>
+  </div>
 </body>
-
-<!-- <script>
-  let p = new p5();
-  const {useMouse, useWindowSize} = window.VueUse
-  const {createApp, ref, computed, watchEffec, onMounted, onUpdated} = Vue
-
-  createApp({
-    setup() {
-      const counter = ref(0)
-      const {x, y} = useMouse()
-      const {width, height} = useWindowSize()
-      const watchAngle = computed(() => `repeating-conic-gradient(black 0deg ${Math.floor(x.value)}deg, white ${Math.floor(x.value)}deg ${Math.floor(x.value) + 20}deg)`)
-      const test = ref("blue")
-      const inlineStyle = computed(() => {
-        return {backgroundImage: watchAngle.value}
-      })
-      const ballStyle = computed(() => {
-        return {left: Math.floor(p.map(x.value, 0, width.value, 0, 300)) + 'px'}
-      })
-      onUpdated(() => {
-        if (counter.value < 1) document.getElementById("defaultCanvas0").remove()
-        counter.value++
-      })
-      return {test, x, watchAngle, inlineStyle, ballStyle}
-    }
-  }).mount('#app')
-</script> -->
 
 <style>
   html,
   body {
+    background-color: black;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   body {
@@ -78,62 +120,19 @@
     height: 100vh;
   }
 
-  #app {
-    display: flex;
-    flex-direction: row;
+  circle,
+  rect {
+    fill: white;
+    mix-blend-mode: difference;
+    shape-rendering: crispEdges;
   }
 
-  .shadow .grid {
-    border: black solid 1px;
-    width: 300px;
-    aspect-ratio: 9/16;
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-    height: 100%;
-  }
-
-  .shadow .grid:first-child {
-    margin-right: 20px;
-  }
-
-  .shadow .container {
-    display: flex;
-  }
-
-  .shadow .script {
-    font-family: Helvetica;
-    font-size: 120px;
-    text-transform: uppercase;
-    line-height: .5;
-  }
-
-  .shadow .tik.container {
-    background: white;
-    justify-content: end;
-    align-items: flex-end;
-    position: relative;
-  }
-
-  .shadow .tik.ball {
-    width: 20px;
-    aspect-ratio: 1;
-    border-radius: 50%;
+  #svg {
+    aspect-ratio: 18/16;
+    height: 100vh;
     background-color: black;
-    position: absolute;
-    left: 30px;
-    top: 30px;
-  }
-
-  .shadow .tok.container {
-    background: black;
-    justify-content: end;
-    align-items: flex-start;
-  }
-
-  .shadow .tok.script {
-    color: white;
-    transform-origin: 100% -30%;
-    transform: skewX(-43deg) translateY(2px) translateX(-29px) scaleY(-1);
+    filter: invert(1);
+    transform: rotate(0);
   }
 </style>
 

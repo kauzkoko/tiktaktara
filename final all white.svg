@@ -1,0 +1,95 @@
+<svg id="test-svg" viewBox="0 0 2160 1920" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <rect width="10" height="1920" fill="black" />
+    <g id="links-gschmeus">
+        <rect width="180" height="440" fill="black" />
+        <rect x="90" y="1630" width="180" height="10" fill="black" />
+        <rect x="90" y="1670" width="180" height="10" fill="black" />
+        <rect x="360" y="1740" width="720" height="180" fill="black" />
+        <rect x="315" y="1480" width="765" height="10" fill="black" />
+        <rect x="360" y="1620" width="720" height="90" fill="black" />
+        <rect x="90" y="1740" width="180" height="180" fill="black" />
+    </g>
+    <g id="k1">
+        <rect x="990" width="90" height="780" fill="black" />
+        <rect x="990" y="960" width="90" height="320" fill="black" />
+        <rect x="945" y="1270" width="135" height="10" fill="black" />
+        <rect x="945" width="135" height="10" fill="black" />
+        <rect x="720" width="90" height="780" fill="black" />
+        <rect x="720" y="960" width="90" height="320" fill="black" />
+        <rect x="720" y="780" width="270" height="180" fill="black" />
+    </g>
+    <g id="a">
+        <rect x="450" y="780" width="180" height="180" fill="black" />
+        <rect x="450" width="180" height="180" fill="black" />
+        <rect x="630" y="700" width="90" height="740" fill="black" />
+        <rect x="630" width="90" height="700" fill="black" />
+        <rect x="360" width="90" height="1100" fill="black" />
+        <rect x="360" y="1100" width="90" height="340" fill="black" />
+        <rect x="315" y="1430" width="180" height="10" fill="black" />
+        <rect x="315" width="180" height="10" fill="black" />
+        <rect x="585" y="1430" width="180" height="10" fill="black" />
+    </g>
+    <g id="t1">
+        <rect y="480" width="360" height="180" fill="black" />
+        <rect x="130" y="660" width="95" height="930" fill="black" />
+        <rect x="90" y="1590" width="180" height="10" fill="black" />
+    </g>
+    <g id="rechts-gschmeus">
+        <rect x="1080" y="1740" width="630" height="180" fill="black" />
+        <rect x="1620" y="110" width="540" height="180" fill="black" />
+        <rect x="1080" y="1660" width="630" height="10" fill="black" />
+        <rect x="1080" y="1700" width="630" height="10" fill="black" />
+        <rect x="1080" y="70" width="450" height="90" fill="black" />
+        <rect x="1710" y="50" width="450" height="10" fill="black" />
+    </g>
+    <g id="k2">
+        <rect x="2070" y="1120" width="90" height="710" fill="black" />
+        <rect x="2070" y="330" width="90" height="610" fill="black" />
+        <rect x="1800" y="330" width="90" height="861" fill="black" />
+        <rect x="1800" y="1191" width="90" height="639" fill="black" />
+        <rect x="1890" y="940" width="180" height="180" fill="black" />
+        <rect x="2030" y="1830" width="130" height="10" fill="black" />
+        <rect x="1760" y="1830" width="130" height="10" fill="black" />
+        <rect x="1760" y="320" width="130" height="10" fill="black" />
+        <rect x="2030" y="320" width="130" height="10" fill="black" />
+    </g>
+    <g id="i">
+        <rect x="1575" y="320" width="90" height="800" fill="black" />
+        <rect x="1575" y="1120" width="90" height="320" fill="black" />
+        <rect x="1530" y="320" width="180" height="10" fill="black" />
+        <rect x="1530" y="1430" width="180" height="10" fill="black" />
+    </g>
+    <g id="t2">
+        <rect x="1260" y="319" width="180" height="180" fill="black" />
+        <rect x="1080" y="319" width="180" height="180" fill="black" />
+        <rect x="1215" y="499" width="90" height="692" fill="black" />
+        <rect x="1215" y="1191" width="90" height="408" fill="black" />
+        <rect x="1170" y="1590" width="180" height="10" fill="black" />
+    </g>
+    <defs>
+        <clipPath id="clip0_39_645">
+            <rect width="1080" height="1920" fill="white" />
+        </clipPath>
+        <clipPath id="clip1_39_645">
+            <rect width="360" height="1280" fill="white" transform="translate(720)" />
+        </clipPath>
+        <clipPath id="clip2_39_645">
+            <rect width="450" height="1440" fill="white" transform="translate(315)" />
+        </clipPath>
+        <clipPath id="clip3_39_645">
+            <rect width="360" height="1120" fill="white" transform="translate(0 480)" />
+        </clipPath>
+        <clipPath id="clip4_39_645">
+            <rect width="1080" height="1870" fill="white" transform="translate(1080 50)" />
+        </clipPath>
+        <clipPath id="clip5_39_645">
+            <rect width="400" height="1520" fill="white" transform="translate(1760 320)" />
+        </clipPath>
+        <clipPath id="clip6_39_645">
+            <rect width="190" height="1120" fill="white" transform="translate(1530 320)" />
+        </clipPath>
+        <clipPath id="clip7_39_645">
+            <rect width="360" height="1281" fill="white" transform="translate(1080 319)" />
+        </clipPath>
+    </defs>
+</svg>
