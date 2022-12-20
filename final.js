@@ -39,10 +39,13 @@ function setup() {
 		})
 	})
 
-	setInterval(realTime, 1000)
-	setInterval(realTimeGschmeus, 1000)
+	setInterval(() => {
+		// realTime()
+		realTimeGschmeus()
+	}, 1000)
 	setInterval(dayNight, 1000 * 60)
-	realTime()
+
+	// realTime()
 	realTimeGschmeus()
 	dayNight()
 
@@ -57,10 +60,10 @@ let circAngle = 0
 let trackedX = 500
 let inside = true
 function draw() {
-	console.log(windowWidth)
 	trackedX = map(posNormal.x, 0, 1.26, 0, windowWidth)
-	console.log(trackedX)
+	// console.log(windowWidth)
 	trackedX = mouseX
+	console.log(trackedX)
 
 	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
 	circAngle += sin(frameCount * speed)
@@ -68,32 +71,20 @@ function draw() {
 
 	shower.innerHTML = windowWidth
 
-	if (trackedX < 10 || trackedX < windowWidth - 50) inside = true
+	if (trackedX < 50 || trackedX < windowWidth - 10) inside = true
 	else inside = false
+	console.log("inside", inside)
 
 	if (inside) {
+		console.log("in inside")
 		enableRealTime = false
-		const d = new Date()
-
-		let h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours()
-		let m = d.getMinutes()
-		let s = d.getSeconds()
-
-		h += m / 60
-
-		const hAngle = h * 30
-		const mAngle = (m / 60) * 360
-		const sAngle = (s / 60) * 360 + 90
-
 		letters.forEach((item, index) => {
 			item.each(function (i, children) {
 				let x = this.attr("x") ?? 0
 				let y = this.attr("y") ?? 0
 
 				let mappedXhour = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, hAngle, 360) : map(trackedX, windowWidth / 2, windowWidth, 0, hAngle)
-
 				let mappedXmin = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, mAngle, 720) : map(trackedX, windowWidth / 2, windowWidth, 0, 720)
-
 				let mappedXsec = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, sAngle, 1440) : map(trackedX, windowWidth / 2, windowWidth, 0, 1440)
 
 				if (this.attr("width") == 10 || this.attr("height") == 10) {
@@ -109,21 +100,21 @@ function draw() {
 		enableRealTime = true
 	}
 
+	console.log(enableRealTime)
+
 	posterTasks() // do not remove this last line!
 }
 
+let d, h, m, s, hAngle, mAngle, sAngle
 const realTimeGschmeus = () => {
-	const d = new Date()
-
-	let h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours()
-	let m = d.getMinutes()
-	let s = d.getSeconds()
-
+	d = new Date()
+	h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours()
+	m = d.getMinutes()
+	s = d.getSeconds()
 	h += m / 60
-
-	const hAngle = h * 30
-	const mAngle = (m / 60) * 360 + 90
-	const sAngle = (s / 60) * 360 + 90
+	hAngle = h * 30
+	mAngle = (m / 60) * 360 + 90
+	sAngle = (s / 60) * 360 + 90
 
 	gschmeus.forEach((item, index) => {
 		item.each(function (i, children) {
@@ -138,20 +129,6 @@ const realTimeGschmeus = () => {
 			}
 		})
 	})
-}
-
-const realTime = () => {
-	const d = new Date()
-
-	let h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours()
-	let m = d.getMinutes()
-	let s = d.getSeconds()
-
-	h += m / 60
-
-	const hAngle = h * 30
-	const mAngle = (m / 60) * 360
-	const sAngle = (s / 60) * 360 + 90
 
 	if (enableRealTime) {
 		letters.forEach((item, index) => {
@@ -170,20 +147,9 @@ const realTime = () => {
 	}
 }
 
+const realTime = () => {}
+
 const dayNight = () => {
-	const d = new Date()
-
-	let h = d.getHours()
-	let h12 = h > 12 ? h - 12 : h
-	let m = d.getMinutes()
-	let s = d.getSeconds()
-
-	h12 += m / 60
-
-	const hAngle = h12 * 30
-	const mAngle = (m / 60) * 360
-	const sAngle = (s / 60) * 360 + 90
-
-	if (h < 12) bgh.attr({ cy: 10000 + floor(map(h, 0, 12, 1920, 0)) })
-	else bgh.attr({ cy: 10000 + floor(map(h, 12, 24, 0, 1920)) })
+	if (h < 12) bgh.attr({ cy: 10000 + floor(map(h, 0, 12, 0, 1920)) })
+	else bgh.attr({ cy: 10000 + floor(map(h, 12, 24, 1920, 0)) })
 }
