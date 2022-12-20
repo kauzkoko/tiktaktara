@@ -2,8 +2,12 @@
 const port = 8025
 const osc = new OSC()
 let enableDepthStream = true
+let enableRGBStream = false
 let lastOSC = 0
 let data // array of depth data
+let rData // array of red data
+let gData // array of red data
+let bData // array of red data
 let dataFiltered
 let depthW // width of data array
 let depthH // width of height array
@@ -11,16 +15,16 @@ let position // blob center
 let posNormal // blob center normalised
 let tracking = false // if someone is infront of the camera
 let mouseOverC
-function setupOSC(depthEnabled) {
+function setupOSC(depthEnabled, rgbEnabled) {
 	// this.mouseOver(mouseOverCanvas);
 	enableDepthStream = depthEnabled
+	enableRGBStream = rgbEnabled
 	lastOSC = millis()
 	position = createVector(0, 0, 0)
 	posNormal = createVector(0, 0, 0) // normalised
 	//
 	//const myCanvas = document.getElementById('defaultCanvas0');
-	let test = true
-	if (test) {
+	if (true) {
 		select("#svg").mouseOut(out)
 		select("#svg").mouseOver(over)
 	} else {
@@ -29,7 +33,6 @@ function setupOSC(depthEnabled) {
 	}
 
 	// init buffer
-	// depthImage = createImage(160, 120);
 	// setup OSC receiver
 	osc.on("/depth", (msg) => {
 		updateDepthImage(msg)
@@ -43,6 +46,19 @@ function setupOSC(depthEnabled) {
 		console.log("Could not connect: " + e)
 	}
 	correctAspectRatio()
+	if (enableRGBStream) {
+		let depthH = 140
+		let depthW = 160
+		let depthLength = depthH * depthW
+		rData = []
+		gData = []
+		bData = []
+		for (let i = 0; i < depthLength; i++) {
+			rData[i] = 100
+			gData[i] = 100
+			bData[i] = 100
+		}
+	}
 }
 function out() {
 	if (oscSignal == false) {
@@ -88,21 +104,31 @@ function updateDepthImage(msg) {
 		depthW = msg.args[0]
 		depthH = msg.args[1]
 		data = msg.args[2]
-		data = msg.args[2]
-
 		/* weighted moving average on every point*/
 		try {
 			let depthLength = depthW * depthH
 			for (let i = 0; i < depthLength; i++) {
 				//let index = (i*w)+j;
+				let datasplit = data[i]
 				dataFiltered[i] = int(dataFiltered[i] * 0.9)
-				dataFiltered[i] += int(data[i] * 0.1)
+				dataFiltered[i] += int(datasplit * 0.1)
 			}
 		} catch (e) {
 			console.log("data not defined yet")
 			dataFiltered = Array.from(msg.args[2])
 		}
+
+		try {
+			if (enableRGBStream) {
+				rData = msg.args[7]
+				gData = msg.args[8]
+				bData = msg.args[9]
+			}
+		} catch (e) {
+			console.log("rgb data not defined yet")
+		}
 	}
+
 	//
 	// uncomment to recreate image
 	//
