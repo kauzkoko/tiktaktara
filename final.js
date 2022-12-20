@@ -46,7 +46,7 @@ function setup() {
 	realTimeGschmeus()
 	dayNight()
 
-	// shower = document.querySelector("#shower")
+	shower = document.querySelector("#shower")
 }
 let enableRealTime = true
 let speed = 0.8
@@ -63,7 +63,10 @@ function draw() {
 	circAngle += sin(frameCount * speed)
 	//circ.hide()
 
-	// shower.innerHTML = inside
+	shower.innerHTML = windowWidth
+
+	if (position.x < 10 || position.x < windowWidth - 10) inside = true
+	else inside = false
 
 	if (inside) {
 		enableRealTime = false
