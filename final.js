@@ -7,7 +7,7 @@ let animatedGschmeus = []
 let shower
 
 function setup() {
-	noCanvas()
+	noCanvas() //@paulina & luke: poster switching logics should be changed accordingly. our sketch basically takes places in a svg with id "svg" with aspect ratio of 18:16 instead of default canvas
 	setupOSC(false) // impartant! Don't modify this line.
 	frameRate(60)
 	angleMode(DEGREES)
@@ -54,10 +54,10 @@ let speed = 0.8
 let circCounter = 0
 let circAngle = 0
 
+let trackedX
 function draw() {
-	console.log(position.x)
-	// position.x = position.x
-	// console.log(position.x)
+	console.log(posNormal.x)
+	trackedX = map(posNormal.x, 0, 1.26, 0, 2160)
 
 	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
 	circAngle += sin(frameCount * speed)
@@ -65,7 +65,7 @@ function draw() {
 
 	shower.innerHTML = windowWidth
 
-	if (position.x < 10 || position.x < windowWidth - 10) inside = true
+	if (trackedX < 10 || trackedX < windowWidth - 10) inside = true
 	else inside = false
 
 	if (inside) {
@@ -87,11 +87,11 @@ function draw() {
 				let x = this.attr("x") ?? 0
 				let y = this.attr("y") ?? 0
 
-				let mappedXhour = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, hAngle, 360) : map(position.x, windowWidth / 2, windowWidth, 0, hAngle)
+				let mappedXhour = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, hAngle, 360) : map(trackedX, windowWidth / 2, windowWidth, 0, hAngle)
 
-				let mappedXmin = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, mAngle, 720) : map(position.x, windowWidth / 2, windowWidth, 0, 720)
+				let mappedXmin = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, mAngle, 720) : map(trackedX, windowWidth / 2, windowWidth, 0, 720)
 
-				let mappedXsec = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, sAngle, 1440) : map(position.x, windowWidth / 2, windowWidth, 0, 1440)
+				let mappedXsec = trackedX < windowWidth / 2 ? map(trackedX, 0, windowWidth / 2, sAngle, 1440) : map(trackedX, windowWidth / 2, windowWidth, 0, 1440)
 
 				if (this.attr("width") == 10 || this.attr("height") == 10) {
 					animatedLetters[index][i].transform({ rotate: floor(mappedXsec), origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
@@ -105,6 +105,7 @@ function draw() {
 	} else {
 		enableRealTime = true
 	}
+
 	posterTasks() // do not remove this last line!
 }
 

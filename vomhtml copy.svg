@@ -1,0 +1,84 @@
+<svg id="svg" viewBox="0 0 2160 1920" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <rect id="bgh" width="1080" height="1920" fill="black" />
+    <circle id="circ" cx="1080" cy="960" r="1080" fill="black" />
+    <g id="rechts-gschmeus">
+        <rect x="1181" y="1760" width="429" height="160" fill="black" />
+        <rect x="1180" y="1660" width="430" height="10" fill="black" />
+        <rect x="1180" y="1700" width="430" height="10" fill="black" />
+        <rect x="1900" y="681" width="160" height="10" fill="black" />
+        <rect x="1900" y="641" width="160" height="10" fill="black" />
+        <rect x="1110" y="220" width="300" height="10" fill="black" />
+        <rect x="1110" y="260" width="300" height="10" fill="black" />
+        <rect x="1450" y="1400" width="160" height="110" fill="black" />
+        <rect x="1450" y="70" width="710" height="10" fill="black" />
+        <rect x="1680" y="160" width="480" height="80" fill="black" />
+        <rect x="1080" y="0" width="330" height="80" fill="black" />
+        <rect x="2080" y="1650" width="80" height="270" fill="black" />
+        <rect x="2150" y="720" width="10" height="609" fill="black" />
+    </g>
+    <g id="k2">
+        <rect x="1720" y="730" width="80" height="440" fill="black" />
+        <rect x="1720" y="1170" width="220" height="160" fill="black" />
+        <rect x="1720" y="1830" width="80" height="80" fill="black" />
+        <rect x="1680" y="1910" width="120" height="10" fill="black" />
+        <rect x="1940" y="730" width="80" height="230" fill="black" />
+        <rect x="1940" y="960" width="80" height="210" fill="black" />
+        <rect x="1940" y="1330" width="80" height="580" fill="black" />
+        <rect x="1900" y="1910" width="160" height="10" fill="black" />
+        <rect x="1680" y="720" width="120" height="10" fill="black" />
+        <rect x="1900" y="720" width="160" height="10" fill="black" />
+        <rect x="1720" y="1330" width="80" height="500" fill="black" />
+    </g>
+    <g id="a">
+        <rect x="580" width="80" height="499" fill="black" />
+        <rect x="440" width="140" height="160" fill="black" />
+        <rect x="360" y="10" width="80" height="680" fill="black" />
+        <rect x="440" y="450" width="140" height="160" fill="black" />
+        <rect x="320" y="1190" width="160" height="10" fill="black" />
+        <rect x="294" width="146" height="10" fill="black" />
+        <rect x="540" y="1190" width="160" height="10" fill="black" />
+        <rect x="580" y="499" width="80" height="691" fill="black" />
+        <rect x="360" y="690" width="80" height="500" fill="black" />
+    </g>
+    <g id="t2">
+        <rect x="1110" y="400" width="150" height="160" fill="black" />
+        <rect x="1260" y="400" width="150" height="160" fill="black" />
+        <rect x="1220" y="560" width="80" height="1030" fill="black" />
+        <rect x="1180" y="1590" width="160" height="10" fill="black" />
+    </g>
+    <g id="links-gschmeus">
+        <rect width="160" y="0" height="320" fill="black" />
+        <rect x="70" y="1660" width="160" height="10" fill="black" />
+        <rect x="70" y="1700" width="160" height="10" fill="black" />
+        <rect x="320" y="1760" width="760" height="160" fill="black" />
+        <rect x="320" y="1500" width="760" height="10" fill="black" />
+        <rect x="320" y="1630" width="760" height="80" fill="black" />
+        <rect x="70" y="1760" width="160" height="160" fill="black" />
+        <rect x="700" y="0" width="380" height="80" fill="black" />
+        <rect x="320" y="1239" width="160" height="181" fill="black" />
+    </g>
+    <g id="k1">
+        <rect x="740" y="230" width="80" height="440" fill="black" />
+        <rect x="740" y="670" width="220" height="160" fill="black" />
+        <rect x="740" y="830" width="80" height="580" fill="black" />
+        <rect x="700" y="1410" width="120" height="10" fill="black" />
+        <rect x="960" y="230" width="80" height="440" fill="black" />
+        <rect x="960" y="830" width="80" height="580" fill="black" />
+        <rect x="920" y="1410" width="160" height="10" fill="black" />
+        <rect x="700" y="220" width="120" height="10" fill="black" />
+        <rect x="920" y="220" width="160" height="10" fill="black" />
+    </g>
+    <g id="i">
+        <rect x="1490" y="605" width="80" height="745" fill="black" />
+        <rect x="1490" y="170" width="80" height="238" fill="black" />
+        <rect x="1490" y="408" width="80" height="197" fill="black" />
+        <rect x="1450" y="1350" width="160" height="10" fill="black" />
+        <rect x="1450" y="160" width="160" height="10" fill="black" />
+    </g>
+    <g id="t1">
+        <rect y="430" width="300" height="160" fill="black" />
+        <rect x="110" y="590" width="80" height="358" fill="black" />
+        <rect x="110" y="948" width="80" height="672" fill="black" />
+        <rect x="70" y="1620" width="160" height="10" fill="black" />
+    </g>
+</svg>
