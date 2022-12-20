@@ -54,10 +54,13 @@ let speed = 0.8
 let circCounter = 0
 let circAngle = 0
 
-let trackedX
+let trackedX = 500
+let inside = true
 function draw() {
-	console.log(posNormal.x)
+	console.log(windowWidth)
 	trackedX = map(posNormal.x, 0, 1.26, 0, windowWidth)
+	console.log(trackedX)
+	trackedX = mouseX
 
 	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
 	circAngle += sin(frameCount * speed)
@@ -65,7 +68,7 @@ function draw() {
 
 	shower.innerHTML = windowWidth
 
-	if (trackedX < 10 || trackedX < windowWidth - 10) inside = true
+	if (trackedX < 10 || trackedX < windowWidth - 50) inside = true
 	else inside = false
 
 	if (inside) {
@@ -181,11 +184,6 @@ const dayNight = () => {
 	const mAngle = (m / 60) * 360
 	const sAngle = (s / 60) * 360 + 90
 
-	if (h < 12) bgh.attr({ width: floor(map(h, 0, 12, 2160, 0)) })
-	else bgh.attr({ width: floor(map(h, 12, 24, 0, 2160)) })
-}
-
-let inside = false
-function mouseClicked() {
-	inside = !inside
+	if (h < 12) bgh.attr({ height: floor(map(h, 0, 12, 1920, 0)) })
+	else bgh.attr({ height: floor(map(h, 12, 24, 0, 1920)) })
 }
