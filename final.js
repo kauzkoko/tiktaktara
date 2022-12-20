@@ -57,7 +57,7 @@ let circAngle = 0
 let trackedX
 function draw() {
 	console.log(posNormal.x)
-	trackedX = map(posNormal.x, 0, 1.26, 0, 2160)
+	trackedX = map(posNormal.x, 0, 1.26, 0, windowWidth)
 
 	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
 	circAngle += sin(frameCount * speed)
