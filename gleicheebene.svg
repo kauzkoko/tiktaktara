@@ -55,8 +55,8 @@
         <rect x="70" y="1550" width="160" height="10" fill="black" />
     </g>
     <g clip-path="url(#clip6_217_252)">
-        <path d="M586 1760H1420V1920H586V1760Z" fill="black" />
         <rect x="70" y="1760" width="336" height="80" fill="black" />
+        <rect x="586" y="1760" width="834" height="160" fill="black" />
         <rect x="1690" y="1690" width="430" height="80" fill="black" />
         <rect x="70" y="1690" width="516" height="10" fill="black" />
         <rect x="706" y="1690" width="904" height="10" fill="black" />
@@ -65,9 +65,9 @@
     </g>
     <g clip-path="url(#clip7_217_252)">
         <rect x="640" y="150" width="440" height="80" fill="black" />
+        <rect y="70" width="480" height="160" fill="black" />
         <rect x="1610" width="290" height="80" fill="black" />
         <rect x="820" y="70" width="420" height="10" fill="black" />
-        <path d="M0 70L480 70V230H0L0 70Z" fill="black" />
         <rect x="1240" y="151" width="660" height="10" fill="black" />
         <rect x="2000" y="220" width="160" height="10" fill="black" />
         <rect y="290" width="706" height="10" fill="black" />

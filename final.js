@@ -184,6 +184,6 @@ const dayNight = () => {
 	const mAngle = (m / 60) * 360
 	const sAngle = (s / 60) * 360 + 90
 
-	if (h < 12) bgh.attr({ height: floor(map(h, 0, 12, 1920, 0)) })
-	else bgh.attr({ height: floor(map(h, 12, 24, 0, 1920)) })
+	if (h < 12) bgh.attr({ cy: 10000 + floor(map(h, 0, 12, 1920, 0)) })
+	else bgh.attr({ cy: 10000 + floor(map(h, 12, 24, 0, 1920)) })
 }
