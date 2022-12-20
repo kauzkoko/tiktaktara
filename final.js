@@ -8,6 +8,7 @@ let shower
 
 function setup() {
 	noCanvas()
+	setupOSC(false) // impartant! Don't modify this line.
 	frameRate(60)
 	angleMode(DEGREES)
 	frameRate(60)
@@ -45,7 +46,7 @@ function setup() {
 	realTimeGschmeus()
 	dayNight()
 
-	shower = document.querySelector("#shower")
+	// shower = document.querySelector("#shower")
 }
 let enableRealTime = true
 let speed = 0.8
@@ -54,11 +55,15 @@ let circCounter = 0
 let circAngle = 0
 
 function draw() {
+	console.log(position.x)
+	// position.x = position.x
+	// console.log(position.x)
+
 	circ.transform({ rotate: map(circAngle, 0, 114 / speed, -100, 100), origin: [1080, -300] })
 	circAngle += sin(frameCount * speed)
 	//circ.hide()
 
-	shower.innerHTML = inside
+	// shower.innerHTML = inside
 
 	if (inside) {
 		enableRealTime = false
@@ -79,11 +84,11 @@ function draw() {
 				let x = this.attr("x") ?? 0
 				let y = this.attr("y") ?? 0
 
-				let mappedXhour = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, hAngle, 360) : map(mouseX, windowWidth / 2, windowWidth, 0, hAngle)
+				let mappedXhour = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, hAngle, 360) : map(position.x, windowWidth / 2, windowWidth, 0, hAngle)
 
-				let mappedXmin = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, mAngle, 720) : map(mouseX, windowWidth / 2, windowWidth, 0, 720)
+				let mappedXmin = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, mAngle, 720) : map(position.x, windowWidth / 2, windowWidth, 0, 720)
 
-				let mappedXsec = mouseX < windowWidth / 2 ? map(mouseX, 0, windowWidth / 2, sAngle, 1440) : map(mouseX, windowWidth / 2, windowWidth, 0, 1440)
+				let mappedXsec = position.x < windowWidth / 2 ? map(position.x, 0, windowWidth / 2, sAngle, 1440) : map(position.x, windowWidth / 2, windowWidth, 0, 1440)
 
 				if (this.attr("width") == 10 || this.attr("height") == 10) {
 					animatedLetters[index][i].transform({ rotate: floor(mappedXsec), origin: [x + this.attr("width") / 2, y + this.attr("height") / 2] })
@@ -97,6 +102,7 @@ function draw() {
 	} else {
 		enableRealTime = true
 	}
+	posterTasks() // do not remove this last line!
 }
 
 const realTimeGschmeus = () => {
